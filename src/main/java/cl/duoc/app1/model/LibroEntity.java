@@ -1,4 +1,6 @@
 package cl.duoc.app1.model;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,6 +27,7 @@ public class LibroEntity {
         allocationSize = 1
     )
     @Column(name ="id_libro")
+    @JsonProperty("id")
     Long id;
 
     @Column(name ="titulo")

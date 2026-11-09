@@ -22,7 +22,12 @@ public class LibroServicesImpl implements LibroServices {
 
     @Override 
     public LibroResponse getLibroById(Long id) {
-        return libroRepository.findById(id).map(this::toDTO).get();
+        if(libroRepository.existsById(id)) {
+            return libroRepository.findById(id).map(this::toDTO).get();
+        } else {
+            return new LibroResponse();
+        }
+        
     }
 
     @Override 
